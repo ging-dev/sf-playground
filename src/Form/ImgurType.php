@@ -44,7 +44,7 @@ class ImgurType extends AbstractType
                         'body' => \fopen($image->getPathname(), 'r'),
                     ])->toArray();
                 } catch (ClientException $e) {
-                    $formEvent->getForm()->addError(new FormError($e->getMessage()));
+                    $form->addError(new FormError($e->getMessage()));
 
                     return;
                 }

@@ -11,8 +11,8 @@ use Doctrine\Persistence\ManagerRegistry;
  *
  * @method Imgur|null find($id, $lockMode = null, $lockVersion = null)
  * @method Imgur|null findOneBy(array $criteria, array $orderBy = null)
- * @method Imgur[]    findAll()
- * @method Imgur[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method list<Imgur>    findAll()
+ * @method list<Imgur>    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class ImgurRepository extends ServiceEntityRepository
 {

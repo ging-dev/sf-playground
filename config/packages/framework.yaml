@@ -17,6 +17,15 @@ framework:
     php_errors:
         log: true
 
+    http_client:
+        scoped_clients:
+            imgur.client:
+                base_uri: 'https://api.imgur.com'
+                headers:
+                    Accept: 'application/json'
+                    Authorization: 'Client-ID f247949abb8308c'
+                http_version: '1.1'
+
 when@test:
     framework:
         test: true

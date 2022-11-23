@@ -9,10 +9,10 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @extends ServiceEntityRepository<Imgur>
  *
- * @method Imgur|null find($id, $lockMode = null, $lockVersion = null)
- * @method Imgur|null findOneBy(array $criteria, array $orderBy = null)
- * @method list<Imgur>    findAll()
- * @method list<Imgur>    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Imgur|null  find($id, $lockMode = null, $lockVersion = null)
+ * @method Imgur|null  findOneBy(array $criteria, array $orderBy = null)
+ * @method list<Imgur> findAll()
+ * @method list<Imgur> findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class ImgurRepository extends ServiceEntityRepository
 {

@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User login{% endblock %}
+
+{% block body %}
+<script src="//ulogin.ru/js/ulogin.js"></script>
+<div id="uLogin" data-ulogin="display=panel;theme=classic;fields=photo_big,nickname;providers=google;hidden=;redirect_uri={{ url('app_login')|url_encode }};mobilebuttons=0;"></div>
+{% endblock %}

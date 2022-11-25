@@ -19,17 +19,19 @@
         "symfony/http-client": "6.1.*",
         "symfony/proxy-manager-bridge": "6.1.*",
         "symfony/runtime": "6.1.*",
+        "symfony/security-bundle": "6.1.*",
         "symfony/security-csrf": "6.1.*",
         "symfony/twig-bundle": "6.1.*",
         "symfony/validator": "6.1.*",
         "symfony/yaml": "6.1.*"
     },
     "require-dev": {
-        "psalm/plugin-symfony": "^4.0",
+        "phpstan/phpstan": "^1.9",
+        "phpstan/phpstan-doctrine": "^1.3",
+        "phpstan/phpstan-symfony": "^1.2",
         "symfony/maker-bundle": "^1.48",
         "symfony/stopwatch": "6.1.*",
-        "symfony/web-profiler-bundle": "6.1.*",
-        "vimeo/psalm": "^4.30"
+        "symfony/web-profiler-bundle": "6.1.*"
     },
     "config": {
         "allow-plugins": {
@@ -72,6 +74,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "phpstan": [
+            "phpstan analyse"
         ]
     },
     "conflict": {

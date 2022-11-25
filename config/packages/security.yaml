@@ -19,9 +19,8 @@ security:
             custom_authenticator: App\Security\UloginAuthenticator
 
             remember_me:
-                secret: '%kernel.secret%'
                 always_remember_me: true
-                signature_properties: ['name']
+                signature_properties: [id]
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

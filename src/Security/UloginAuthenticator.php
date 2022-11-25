@@ -28,7 +28,7 @@ class UloginAuthenticator extends AbstractAuthenticator
 
     public function supports(Request $request): bool
     {
-        return $request->attributes->get('_route') === 'app_login' && $request->isMethod('POST');
+        return 'app_login' === $request->attributes->get('_route') && $request->isMethod('POST');
     }
 
     public function authenticate(Request $request): Passport
@@ -54,7 +54,8 @@ class UloginAuthenticator extends AbstractAuthenticator
          *
          * @var array<string,string>
          */
-        $response = $this->client->request('GET',
+        $response = $this->client->request(
+            'GET',
             sprintf('http://ulogin.ru/token.php?token=%s&host=%s',
                 $token,
                 urlencode($this->router->generate('app_login', referenceType: UrlGeneratorInterface::ABSOLUTE_URL))

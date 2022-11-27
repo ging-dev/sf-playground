@@ -64,11 +64,7 @@ class ImgurType extends AbstractType
                 'mapped' => false,
             ])
             ->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $formEvent) {
-                /**
-                 * @psalm-var array{image:UploadedFile}
-                 *
-                 * @var array<string,UploadedFile>
-                 */
+                /** @var array{image: UploadedFile} */
                 $data = $formEvent->getData();
                 $form = $formEvent->getForm();
 

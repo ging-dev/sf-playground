@@ -15,6 +15,14 @@
         {% endblock %}
     </head>
     <body>
+    <nav>
+      Hi,
+      {% if is_granted('ROLE_USER') %}
+        {{ app.user.name }}
+      {% else %}
+        guest
+      {% endif %}
+    </nav>
         {% block body %}{% endblock %}
     </body>
 </html>

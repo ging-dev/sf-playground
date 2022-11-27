@@ -58,7 +58,7 @@ class User implements UserInterface
      */
     public function getUserIdentifier(): string
     {
-        return $this->googleId;
+        return $this->name;
     }
 
     /**

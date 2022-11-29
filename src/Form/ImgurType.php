@@ -5,7 +5,6 @@ namespace App\Form;
 use App\Entity\Imgur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormEvent;
@@ -63,25 +62,24 @@ class ImgurType extends AbstractType
             ->add('image', FileType::class, [
                 'mapped' => false,
             ])
-            ->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $formEvent) {
-                /** @var array{image: UploadedFile} */
-                $data = $formEvent->getData();
-                $form = $formEvent->getForm();
+            ->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $formEvent) {
+                /** @var Imgur */
+                $imgur = $formEvent->getData();
+                /** @var UploadedFile */
+                $image = $formEvent->getForm()->get('image')->getData();
 
                 try {
                     /** @psalm-var ImgurResponseType */
                     $response = $this->imgurClient->request('POST', '/3/image', [
-                        'body' => \fopen($data['image']->getPathname(), 'r'),
+                        'body' => \fopen($image->getPathname(), 'r'),
                     ])->toArray();
                 } catch (ClientException $e) {
-                    $form->addError(new FormError($e->getMessage()));
+                    $formEvent->getForm()->addError(new FormError($e->getMessage()));
 
                     return;
                 }
 
-                $form->add('link', TextType::class, [
-                    'empty_data' => $response['data']['link'],
-                ]);
+                $imgur->setLink($response['data']['link']);
             });
     }
 

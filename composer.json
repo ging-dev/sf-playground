@@ -31,7 +31,7 @@
         "phpstan/phpstan-symfony": "^1.2",
         "symfony/maker-bundle": "^1.48",
         "symfony/stopwatch": "6.1.*",
-        "symfony/web-profiler-bundle": "6.1.*"
+        "symfony/web-profiler-bundle": "6.2.*"
     },
     "config": {
         "allow-plugins": {

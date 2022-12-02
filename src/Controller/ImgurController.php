@@ -35,7 +35,7 @@ class ImgurController extends AbstractController
             return $this->redirectToRoute('app_imgur_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('imgur/new.html.twig', [
+        return $this->render('imgur/new.html.twig', [
             'imgur' => $imgur,
             'form' => $form,
         ]);

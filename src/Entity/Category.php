@@ -74,12 +74,6 @@ class Category
     {
         return $this->parent;
     }
-
-    public function hasParent(): bool
-    {
-        return null !== $this->parent;
-    }
-
     public function setParent(?self $parent): self
     {
         $this->parent = $parent;

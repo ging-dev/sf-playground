@@ -5,24 +5,24 @@
     {{ category.name }} -
     <a href="{{ path('app_category_edit', {'id': category.id}) }}">edit</a>
     <a href="{{ path('app_category_show', {'id': category.id}) }}">show</a>
+    <ul>
+      {% for subCategory in category.subCategories %}
+        {{ _self.tree_categories(subCategory) }}
+      {% endfor %}
+    </ul>
   </li>
-  <ul>
-    {% for subCategory in category.subCategories %}
-      {{ _self.tree_categories(subCategory) }}
-    {% endfor %}
-  </ul>
 {% endmacro %}
 
 {% block title %}Category index{% endblock %}
 
 {% block body %}
-    <h1>Category index</h1>
-    <ul>
-      {% for category in categories %}
-        {{ _self.tree_categories(category) }}
-      {% else %}
-        <li>no records found</li>
-      {% endfor %}
-    </ul>
-    <a href="{{ path('app_category_new') }}">Create new</a>
+  <h1>Category index</h1>
+  <ul>
+    {% for category in categories %}
+      {{ _self.tree_categories(category) }}
+    {% else %}
+      <li>no records found</li>
+    {% endfor %}
+  </ul>
+  <a href="{{ path('app_category_new') }}">Create new</a>
 {% endblock %}

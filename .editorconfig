@@ -11,5 +11,8 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.{twig,js,yml}]
+[*.{js,yml}]
 indent_size = 2
+
+[webpack.config.js]
+indent_size = 4

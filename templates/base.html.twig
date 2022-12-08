@@ -19,6 +19,7 @@
       Hi,
       {% if is_granted('ROLE_USER') %}
         {{ app.user.name }}
+        <img src="{{ app.user.picture }}" alt="">
       {% else %}
         guest
       {% endif %}

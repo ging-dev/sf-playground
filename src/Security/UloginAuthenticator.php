@@ -74,7 +74,7 @@ class UloginAuthenticator extends AbstractAuthenticator
 
             $user->setName($response['nickname'])
                 ->setGoogleId($response['uid'])
-                ->setPictrue($response['photo_big']);
+                ->setPicture($response['photo_big']);
 
             $this->userRepo->save($user, true);
 

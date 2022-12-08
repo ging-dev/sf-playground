@@ -27,7 +27,7 @@ class User implements UserInterface
     private string $name;
 
     #[ORM\Column(length: 255)]
-    private string $pictrue;
+    private string $picture;
 
     public function __toString(): string
     {
@@ -106,14 +106,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPictrue(): string
+    public function getPicture(): string
     {
-        return $this->pictrue;
+        return $this->picture;
     }
 
-    public function setPictrue(string $pictrue): self
+    public function setPicture(string $picture): self
     {
-        $this->pictrue = $pictrue;
+        $this->picture = $picture;
 
         return $this;
     }

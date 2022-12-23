@@ -72,6 +72,15 @@ Encore
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
     .enablePostCssLoader()
+    .configureDevServerOptions(
+        /**
+         * @param {import('webpack-dev-server').Configuration} options
+         */
+        (options) => {
+            options.liveReload = true;
+            options.watchFiles = ['./src/**/*', './templates/**/*'];
+        }
+    )
 ;
 
 module.exports = Encore.getWebpackConfig();
